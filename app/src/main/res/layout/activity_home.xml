@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.pauls.countmywork.Home"
+    android:background="@drawable/bc"
     android:id="@+id/drawerLayout">
 
     <LinearLayout
@@ -17,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/main_layout"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:layout_gravity="center_vertical"
             android:textSize="24sp"
             />
