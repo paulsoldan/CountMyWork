@@ -38,26 +38,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
     }
-
-   /* public void onButtonClick(View v)
-    {
-        if( v.getId()==R.id.button && user_text.getText().toString().equals("test") && pass_text.getText().toString().equals("test")){
-            Intent i=new Intent(MainActivity.this,Display.class);
-            startActivity(i);
-        }
-    }*/
-        /*login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(user_text.getText().toString().equals("test")&&pass_text.getText().toString().equals("test")){
-                    //Toast.makeText(getApplicationContext(),"Welcome "+user_text.getText()+"!", Toast.LENGTH_SHORT).show();
-                    Intent i=new Intent(MainActivity.this, Display.class);
-                    startActivity(i);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Please try again!",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }*/
 }
