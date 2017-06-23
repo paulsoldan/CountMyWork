@@ -1,6 +1,7 @@
 package com.example.pauls.countmywork;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,11 +27,20 @@ public class Home extends AppCompatActivity {
 
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.navigation_menu,menu);
-        return  super.onCreateOptionsMenu(menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.navigation_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menu){
+        int id=menu.getItemId();
+        if(id==R.id.nav_checkIn){
+            startActivity(new Intent(this,checkIn.class));
+        }
+        return  super.onOptionsItemSelected(menu);
     }
     /*public boolean onOptionsItemSelection(MenuItem item){
         if(hToggle.onOptionsItemSelected(item)){
