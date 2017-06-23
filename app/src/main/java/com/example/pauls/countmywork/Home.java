@@ -28,24 +28,24 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
     }
 
+    //create menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.navigation_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+    //change activity page from nav-bar
     @Override
     public boolean onOptionsItemSelected(MenuItem menu){
         int id=menu.getItemId();
         if(id==R.id.nav_checkIn){
             startActivity(new Intent(this,checkIn.class));
         }
+        if(id==R.id.nav_myReports){
+            startActivity(new Intent(this,myReports.class));
+        }
         return  super.onOptionsItemSelected(menu);
     }
-    /*public boolean onOptionsItemSelection(MenuItem item){
-        if(hToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
 }

@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Home" />
-        <activity android:name=".checkIn"></activity>
+        <activity android:name=".checkIn" />
+        <activity android:name=".myReports"></activity>
     </application>
 
 </manifest>
