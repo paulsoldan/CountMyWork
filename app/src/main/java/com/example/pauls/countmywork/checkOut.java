@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class myReports extends AppCompatActivity {
+public class checkOut extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_reports);
+        setContentView(R.layout.activity_check_out);
     }
     //create button nav-bar
     @Override
@@ -26,9 +26,9 @@ public class myReports extends AppCompatActivity {
         if(id==R.id.nav_checkIn){
             startActivity(new Intent(this,checkIn.class));
         }
-        else{
-            if(id==R.id.nav_checkOut){
-                startActivity(new Intent(this,checkOut.class));
+        else {
+            if (id == R.id.nav_myReports) {
+                startActivity(new Intent(this, myReports.class));
             }
         }
         return  super.onOptionsItemSelected(menu);

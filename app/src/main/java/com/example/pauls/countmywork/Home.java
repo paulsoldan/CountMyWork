@@ -38,13 +38,18 @@ public class Home extends AppCompatActivity {
 
     //change activity page from nav-bar
     @Override
-    public boolean onOptionsItemSelected(MenuItem menu){
-        int id=menu.getItemId();
-        if(id==R.id.nav_checkIn){
-            startActivity(new Intent(this,checkIn.class));
-        }
-        if(id==R.id.nav_myReports){
-            startActivity(new Intent(this,myReports.class));
+    public boolean onOptionsItemSelected(MenuItem menu) {
+        int id = menu.getItemId();
+        if (id == R.id.nav_checkIn) {
+            startActivity(new Intent(this, checkIn.class));
+        } else {
+            if (id == R.id.nav_myReports) {
+                startActivity(new Intent(this, myReports.class));
+            } else {
+                if (id == R.id.nav_checkOut) {
+                    startActivity(new Intent(this, checkOut.class));
+                }
+            }
         }
         return  super.onOptionsItemSelected(menu);
     }

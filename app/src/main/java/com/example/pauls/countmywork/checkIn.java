@@ -41,6 +41,11 @@ public class checkIn extends AppCompatActivity {
         if(id==R.id.nav_myReports){
             startActivity(new Intent(this,myReports.class));
         }
+        else{
+            if(id==R.id.nav_checkOut){
+                startActivity(new Intent(this,checkOut.class));
+            }
+        }
         return  super.onOptionsItemSelected(menu);
     }
 }

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Home" />
         <activity android:name=".checkIn" />
-        <activity android:name=".myReports"></activity>
+        <activity android:name=".myReports" />
+        <activity android:name=".checkOut"></activity>
     </application>
 
 </manifest>
