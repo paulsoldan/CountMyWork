@@ -8,10 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <string-array name="task_array">
-        <item>Other Programming Language (Default)</item>
-        <item>Java Programming</item>
-        <item>C/C++ Programming</item>
-        <item>Python Programming</item>
     </string-array>
 
 </resources>
