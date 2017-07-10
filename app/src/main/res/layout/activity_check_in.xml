@@ -17,16 +17,19 @@
         android:layout_marginTop="43dp"
         android:textColor="#ffffff"
         android:textSize="30sp"/>
+
     <Spinner
         android:id="@+id/spinner_task"
-        style="@style/Base.Widget.AppCompat.Spinner"
         android:layout_width="match_parent"
         android:layout_height="50sp"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
     <Button
         android:id="@+id/button_check_in"
         style="@android:style/Widget.Material.Button.Inset"

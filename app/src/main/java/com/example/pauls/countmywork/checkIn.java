@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextClock;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -33,19 +34,10 @@ public class checkIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_in);
         final Context context=this;
+        new RetrieveFeedTask(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         //Clock create
         TextClock clock=(TextClock)findViewById(R.id.clock1);
-
-        new RetrieveFeedTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
-        //Spinner create
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, spinnerArray);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner sItems = (Spinner) findViewById(R.id.spinner_task);
-        sItems.setAdapter(adapter);
-
     }
 
     //create button nav-bar
@@ -70,8 +62,13 @@ public class checkIn extends AppCompatActivity {
     }
     class RetrieveFeedTask extends AsyncTask<Void, Void, String> {
 
+        private checkIn x;
         private Exception exception;
         public String user, password;
+
+        RetrieveFeedTask(checkIn x) {
+            this.x = x;
+        }
 
         protected String doInBackground(Void... urls) {
             // Do some validation here
@@ -110,6 +107,12 @@ public class checkIn extends AppCompatActivity {
             for(int i=0;i<words.length;i++){
                 spinnerArray.add(words[i]);
             }
+            final Spinner sItems = (Spinner) findViewById(R.id.spinner_task);
+            final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    x, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
+            //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            sItems.setAdapter(adapter);
         }
     }
 }

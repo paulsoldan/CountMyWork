@@ -8,4 +8,5 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="welcome_to_countmywork">Welcome to CountMyWork</string>
+    <string name="spinnerPrompt">selecteaza</string>
 </resources>
