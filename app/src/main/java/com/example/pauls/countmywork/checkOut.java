@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextClock;
 
 public class checkOut extends AppCompatActivity {
 
@@ -12,6 +13,8 @@ public class checkOut extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
+
+        TextClock clock2 = (TextClock)findViewById(R.id.clock2);
     }
     //create button nav-bar
     @Override

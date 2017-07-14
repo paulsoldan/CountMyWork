@@ -11,15 +11,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextClock;
 import android.widget.Toast;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.pauls.countmywork.MainActivity.user_text;
 
 public class checkIn extends AppCompatActivity {
 
@@ -38,8 +48,62 @@ public class checkIn extends AppCompatActivity {
 
         //Clock create
         TextClock clock=(TextClock)findViewById(R.id.clock1);
-    }
 
+    }
+    public void onClickButtonCheckIn(View v) {
+
+        //Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
+        //for connect laptop to android
+        //static final String API_URL = "http://192.168.137.1:1234/AndroidServer/rest/api/tasks";
+        //for connect android to laptop
+        String API_URL = "http://192.168.43.172:1234/AndroidServer/rest/api/checkIn/";
+        Spinner spinner=(Spinner)findViewById(R.id.spinner_task);
+        String textSpinner=spinner.getSelectedItem().toString();
+        TextClock clock=(TextClock)findViewById(R.id.clock1);
+        try {
+            final URL url = new URL(API_URL + user_text.getText().toString() + "/" + clock.getText().toString());
+            new AsyncTask<Void, Void, String>() {
+                @Override
+                protected String doInBackground(Void... params) {
+                    HttpURLConnection urlConnection=null;
+                    try {
+                        urlConnection = (HttpURLConnection)url.openConnection();
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                        StringBuilder stringBuilder = new StringBuilder();
+                        String line;
+                        while ((line = bufferedReader.readLine()) != null) {
+                            stringBuilder.append(line);
+                        }
+                        if (stringBuilder.toString().equals("ok"))
+                            System.out.println("okay");
+                            //Toast.makeText(checkIn.this, "Done Check In!", Toast.LENGTH_LONG).show();
+                        //else
+                            //Toast.makeText(checkIn.this, "Error Check In!", Toast.LENGTH_LONG).show();
+                        //System.out.println(stringBuilder.toString());
+                        bufferedReader.close();
+                        return stringBuilder.toString();
+                    }
+                    catch(Exception e){
+                        Toast.makeText(checkIn.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
+                    } finally {
+                        urlConnection.disconnect();
+                    }
+                    return null;
+                }
+                protected void onPostExecute(String response) {
+                    super.onPostExecute(response);
+                    if(response.equals("ok"))
+                        Toast.makeText(checkIn.this, "Done Check In!", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(checkIn.this, "Plese Check Out!", Toast.LENGTH_LONG).show();
+                }
+            }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
+        catch (MalformedURLException e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
     //create button nav-bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
