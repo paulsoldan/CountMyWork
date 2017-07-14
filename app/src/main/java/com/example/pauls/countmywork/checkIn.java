@@ -51,10 +51,8 @@ public class checkIn extends AppCompatActivity {
 
     }
     public void onClickButtonCheckIn(View v) {
-
-        //Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
         //for connect laptop to android
-        //static final String API_URL = "http://192.168.137.1:1234/AndroidServer/rest/api/tasks";
+        //static final String API_URL = "http://192.168.43.172:1234/AndroidServer/rest/api/checkIn/";
         //for connect android to laptop
         String API_URL = "http://192.168.43.172:1234/AndroidServer/rest/api/checkIn/";
         Spinner spinner=(Spinner)findViewById(R.id.spinner_task);
