@@ -61,7 +61,7 @@ public class checkIn extends AppCompatActivity {
         String textSpinner=spinner.getSelectedItem().toString();
         TextClock clock=(TextClock)findViewById(R.id.clock1);
         try {
-            final URL url = new URL(API_URL + user_text.getText().toString() + "/" + clock.getText().toString());
+            final URL url = new URL(API_URL + user_text.getText().toString() + "/" + clock.getText().toString() + "/" + textSpinner);
             new AsyncTask<Void, Void, String>() {
                 @Override
                 protected String doInBackground(Void... params) {
