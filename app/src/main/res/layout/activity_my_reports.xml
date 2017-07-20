@@ -45,11 +45,12 @@
         android:id="@+id/textViewWDTMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView7"
         android:layout_marginStart="25dp"
+        android:layout_toEndOf="@+id/textView7"
         android:text="-"
         android:textColor="#ffffff"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -68,9 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView9"
         android:layout_marginStart="32dp"
-        android:textColor="#ffffff"
         android:layout_toEndOf="@+id/textView9"
-        android:text="-" />
+        android:text="-"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView11"
@@ -111,7 +113,8 @@
         android:layout_alignBottom="@+id/textView13"
         android:layout_toEndOf="@+id/textView5"
         android:text="-"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView15"

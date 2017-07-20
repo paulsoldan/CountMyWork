@@ -126,6 +126,16 @@ public class myReports extends AppCompatActivity {
             hoursWorked.setText(hour_final);
             TextView daysWorked=(TextView)findViewById(R.id.textViewWDTMonth);
             daysWorked.setText(in_response.get(1));
+            int minutes=h_in*60+m_in;
+            int minutesPerDay=minutes/(Integer.parseInt(in_response.get(1)));
+            int hourPD=minutesPerDay/60;
+            int minutesPD=minutesPerDay%60;
+            TextView hoursPerDay=(TextView)findViewById(R.id.textViewAvaregeHoursDay);
+            hoursPerDay.setText("" + hourPD + ":" + minutesPD);
+            TextView salaryThisMonth=(TextView)findViewById(R.id.textViewSalary);
+            salaryThisMonth.setText(in_response.get(2));
+            TextView earnings=(TextView)findViewById(R.id.textViewEarnings);
+            earnings.setText(in_response.get(3));
         }
     }
 }
