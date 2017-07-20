@@ -1,3 +1,3 @@
 # CountMyWork
 
-Search paulsoldan/androidserver for this application's server
+Search paulsoldan/androidserver for this application's server. Thanks!
