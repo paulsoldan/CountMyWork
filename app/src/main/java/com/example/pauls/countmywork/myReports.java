@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.pauls.countmywork.MainActivity.user_text;
 
@@ -63,7 +65,6 @@ public class myReports extends AppCompatActivity {
 
         protected String doInBackground(Void... urls) {
             // Do some validation here
-
             try {
                 final URL url = new URL(API_URL + user_text.getText().toString());
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -88,9 +89,24 @@ public class myReports extends AppCompatActivity {
 
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
+            System.out.println(response);
+            String [] words;
+            List<String> in_response=new ArrayList<String>();
+            String text1=response,text2;
+            StringBuilder sb = new StringBuilder();
+            for(int i=1;i<response.length()-1;i++){
+                sb.append(text1.charAt(i));
+            }
+            text2=sb.toString();
+            String my_new_str = text2.replaceAll(" ", "");
+            words = my_new_str.split(",");
+            for(int i=0;i<words.length;i++){
+                in_response.add(words[i]);
+            }
+
             TextView hoursWorked=(TextView)findViewById(R.id.textViewHoursWorked);
             String hour_final="00:00";
-            String[] in_list = response.split(":");
+            String[] in_list = in_response.get(0).split(":");
             int h_in=Integer.parseInt(in_list[0]);
             int m_in=Integer.parseInt(in_list[1]);
             if(h_in<10){
@@ -108,6 +124,8 @@ public class myReports extends AppCompatActivity {
                 }
             }
             hoursWorked.setText(hour_final);
+            TextView daysWorked=(TextView)findViewById(R.id.textViewWDTMonth);
+            daysWorked.setText(in_response.get(1));
         }
     }
 }
